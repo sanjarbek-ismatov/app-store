@@ -7,6 +7,7 @@
   font-family: "Roboto", sans-serif;
 }
 .loader {
+  z-index: 99;
   display: flex;
   position: absolute;
   width: 100%;
@@ -23,7 +24,7 @@
     height: 70px;
     border-radius: 50%;
     border: 7px solid transparent;
-    animation: animate-spinner 0.5s linear infinite;
+    animation: animate-spinner 0.7s linear infinite;
     border-right-color: rgb(38, 38, 199);
     margin: 30px 0;
   }

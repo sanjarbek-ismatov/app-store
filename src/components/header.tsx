@@ -5,6 +5,7 @@ export default function Header() {
         <div className="header">
           <div className="logo">
             <img />
+            <p>Ready</p>
           </div>
         </div>
       </header>

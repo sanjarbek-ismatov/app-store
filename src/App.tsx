@@ -6,11 +6,11 @@ function App() {
   const [load, setLoad] = useState<string>("loader");
   setTimeout(() => {
     setLoad("not-load");
-  }, 3000);
+  }, 4000);
   return (
     <>
       <Loader style={load} />
-      <Header />
+      {load === "not-load" ? <Header /> : ""}
     </>
   );
 }

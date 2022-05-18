@@ -44,3 +44,43 @@
     transform: rotate(360deg);
   }
 }
+header {
+  width: 100%;
+  .header {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .logo {
+      text-align: center;
+      img {
+        width: 100px;
+      }
+    }
+    .input {
+      height: 50px;
+      display: flex;
+
+      margin: 20px auto;
+      input {
+        height: 100%;
+        width: 90%;
+        outline: none;
+        border: none;
+      }
+      .icon {
+        height: 100%;
+        width: 5%;
+        color: rgb(38, 38, 199);
+        display: flex;
+        align-items: center;
+
+        .search-icon {
+        }
+      }
+      width: 600px;
+      border-bottom: 4px solid rgb(38, 38, 199);
+    }
+  }
+}

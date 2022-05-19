@@ -47,6 +47,7 @@
 header {
   width: 100%;
   .header {
+    transition: all 0.1s ease;
     max-width: 1100px;
     margin: auto;
     display: flex;
@@ -54,6 +55,7 @@ header {
     flex-direction: column;
     .logo {
       text-align: center;
+      margin: 20px 0;
       img {
         width: 100px;
       }
@@ -81,6 +83,19 @@ header {
       }
       width: 600px;
       border-bottom: 4px solid rgb(38, 38, 199);
+    }
+  }
+  .search-header {
+    max-width: 100%;
+    flex-direction: unset;
+    .logo {
+      margin: 10px;
+      img {
+        width: 75px;
+      }
+      h1 {
+        font-size: 20px;
+      }
     }
   }
 }

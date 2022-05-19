@@ -14,7 +14,17 @@ export default function Header() {
             <div className="icon">
               <FontAwesomeIcon className="search-icon" icon={faSearch} />
             </div>
-            <input type="text" />
+            <input
+              type="text"
+              placeholder="Enter your need application..."
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  document
+                    .getElementsByClassName("header")[0]
+                    .classList.add("search-header");
+                }
+              }}
+            />
           </div>
         </div>
       </header>

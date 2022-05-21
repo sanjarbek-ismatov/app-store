@@ -1,14 +1,14 @@
-module.exports.Request = () => {
+export const Request = () => {
   return {
     type: "request",
   };
 };
-module.exports.Success = (state) => {
+export const Success = (state: any) => {
   return {
     type: "success",
     payload: state,
   };
 };
-module.exports.Failure = (error) => {
+export const Failure = (error: any) => {
   return { type: "failure", payload: error };
 };

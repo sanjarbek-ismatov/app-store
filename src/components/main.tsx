@@ -1,7 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+export var clicked: number;
 function Main() {
   const state: any = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const navigator = useNavigate();
   return (
     <>
       <main>
@@ -14,7 +17,10 @@ function Main() {
                 <img
                   src={el.icon}
                   className="app-icon"
-                  onClick={() => console.log(el.name)}
+                  onClick={() => {
+                    clicked = id;
+                    navigator("/app");
+                  }}
                 />
                 <p>{el.name}</p>
                 <a href={el.file.path} target="_blank">

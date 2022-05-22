@@ -11,8 +11,15 @@ function Main() {
           state.data.data.datalist.list.map((el: any, id: number) => {
             return (
               <div className="result" key={id}>
-                <img src={el.icon} className="app-icon" />
+                <img
+                  src={el.icon}
+                  className="app-icon"
+                  onClick={() => console.log(el.name)}
+                />
                 <p>{el.name}</p>
+                <a href={el.file.path} target="_blank">
+                  Download
+                </a>
               </div>
             );
           })}

@@ -104,3 +104,11 @@ header {
 .app-icon {
   width: 200px;
 }
+.main-app {
+  .header-app {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .desc {
+  }
+}

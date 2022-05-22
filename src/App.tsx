@@ -12,17 +12,16 @@ function App() {
 
   return (
     <>
-      <Provider store={store}>
-        <Loader style={load} />
-        {load === "not-load" ? (
-          <>
-            <Header />
-            <Main />
-          </>
-        ) : (
-          ""
-        )}
-      </Provider>
+      <Loader style={load} />
+
+      {load === "not-load" ? (
+        <>
+          <Header />
+          <Main />
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 }

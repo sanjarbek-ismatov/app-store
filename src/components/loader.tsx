@@ -6,16 +6,12 @@ type LoaderProps = {
   style: string;
 };
 export default function Loader({ style }: LoaderProps) {
-  const [loadtext, setLoadText] = useState("Loading...");
-  setTimeout(() => {
-    setLoadText("App ready!");
-  }, 1500);
   return (
     <>
       <div className={style}>
         <AppStoreIcon className="icon-logo" />
         <div className="spinner"></div>
-        <p className="loader-text">{loadtext}</p>
+        <p className="loader-text">Loading...</p>
       </div>
     </>
   );

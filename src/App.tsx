@@ -7,9 +7,8 @@ import { Provider } from "react-redux";
 import Main from "./components/main";
 function App() {
   const [load, setLoad] = useState<string>("loader");
-  setTimeout(() => {
-    setLoad("not-load");
-  }, 4000);
+  window.onload = () => setTimeout(() => setLoad("not-load"), 2000);
+
   return (
     <>
       <Provider store={store}>

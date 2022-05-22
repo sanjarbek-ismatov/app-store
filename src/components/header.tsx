@@ -6,6 +6,7 @@ import { Fetch } from "../state/redux";
 import { useState } from "react";
 import { AnyAction } from "redux";
 import { Value } from "sass";
+import AppStoreIcon from "./icon";
 export default function Header() {
   const states = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export default function Header() {
       <header>
         <div className="header">
           <div className="logo">
-            <img src={Logo} alt="logo" />
+            <img className="logo-icon" src={Logo} alt="logo" />
             <h1>App Store</h1>
           </div>
           <div className="input">

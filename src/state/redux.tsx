@@ -40,12 +40,12 @@ export const Fetch = (query: string) => {
   return (dispatch: any) => {
     dispatch(Request());
     axios
-      .get(`https://ws75.aptoide.com/api/7/apps/search/query=${query}/limit=30`)
+      .get(`https://ws75.aptoide.com/api/7/apps/search/query=${query}/limit=50`)
       .then((data: any) => {
         dispatch(Success(data));
       })
       .catch((error: any) => dispatch(Failure(error)));
   };
 };
-store.dispatch(Fetch("popular"));
+
 store.subscribe(() => console.log(store.getState()));

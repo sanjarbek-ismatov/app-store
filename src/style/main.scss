@@ -105,10 +105,40 @@ header {
   width: 200px;
 }
 .main-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
   .header-app {
     display: flex;
     flex-wrap: wrap;
+    img {
+      border-radius: 20px;
+    }
   }
+
   .desc {
+    margin: 15px;
+    * {
+      margin: 2px 1px;
+    }
+    div {
+      display: flex;
+    }
+  }
+  .download {
+    display: flex;
+    flex-direction: column;
+    .btn-download {
+      text-align: center;
+      margin: 10px 0;
+      padding: 15px 40px;
+      background: linear-gradient(230deg, rgb(43 43 223), rgb(30 29 90));
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 23px;
+    }
   }
 }

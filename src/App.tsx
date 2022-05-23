@@ -8,7 +8,7 @@ import Main from "./components/main";
 import About from "./components/about";
 function App() {
   const [load, setLoad] = useState<string>("loader");
-  window.onload = () => setTimeout(() => setLoad("not-load"), 2000);
+  setTimeout(() => setLoad("not-load"), 2000);
 
   return (
     <>

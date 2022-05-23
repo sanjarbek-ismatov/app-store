@@ -142,3 +142,18 @@ header {
     }
   }
 }
+main {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .result {
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+    margin: 5px;
+    img {
+      border-radius: 20px;
+    }
+  }
+}

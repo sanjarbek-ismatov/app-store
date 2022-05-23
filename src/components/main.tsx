@@ -23,9 +23,6 @@ function Main() {
                   }}
                 />
                 <p>{el.name}</p>
-                <a href={el.file.path} target="_blank">
-                  Download
-                </a>
               </div>
             );
           })}

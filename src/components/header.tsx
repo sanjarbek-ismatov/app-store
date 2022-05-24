@@ -11,6 +11,9 @@ export default function Header() {
   return (
     <>
       <header>
+        <div className="spinner-app">
+          <span></span>
+        </div>
         <div className="header">
           <div className="logo">
             <img className="logo-icon" src={Logo} alt="logo" />

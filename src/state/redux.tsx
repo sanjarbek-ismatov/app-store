@@ -44,9 +44,7 @@ export const Fetch = (query: string) => {
       .then((data: any) => {
         dispatch(Success(data));
       })
-      // fetch("https://ws75.aptoide.com/api/7/apps/search/query=${query}/limit=50")
-      //   .then((res) => res.json())
-      //   .then((data) => dispatch(Success(data)))
+
       .catch((error) => dispatch(Failure(error)));
   };
 };

@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/about";
 import { Provider } from "react-redux";
 import { store } from "./state/redux";
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementsByClassName("container")[0]!).render(
   <>
     <BrowserRouter>
       <Provider store={store}>

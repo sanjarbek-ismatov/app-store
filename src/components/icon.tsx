@@ -1,6 +1,22 @@
 import { ComponentProps } from "react";
-
-function AppStoreIcon({ ...rest }: ComponentProps<"svg">) {
+export function StorageIcon({ ...rest }: ComponentProps<"svg">) {
+  return (
+    <svg
+      {...rest}
+      xmlns="http://www.w3.org/2000/svg"
+      width="9"
+      height="9"
+      viewBox="0 0 9 9"
+    >
+      <path
+        fill="#2626c7"
+        fill-rule="nonzero"
+        d="M4.674.044v4.208a.467.467 0 0 1-.467.467H0A4.235 4.235 0 1 0 4.674.044zm-.93 0A4.235 4.235 0 0 0 0 3.788h3.743V.044z"
+      />
+    </svg>
+  );
+}
+export function AppStoreIcon({ ...rest }: ComponentProps<"svg">) {
   return (
     <svg
       {...rest}
@@ -38,5 +54,3 @@ function AppStoreIcon({ ...rest }: ComponentProps<"svg">) {
     </svg>
   );
 }
-
-export default AppStoreIcon;

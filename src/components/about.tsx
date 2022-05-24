@@ -41,7 +41,7 @@ function About() {
               (
               {element.stats.pdownloads >= 1000000
                 ? `${Math.floor(element.stats.pdownloads / 1000000)}M+`
-                : element.stats.pdownloads}
+                : element.stats.pdownloads + " "}
               Downloads)
             </p>
           </div>

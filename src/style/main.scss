@@ -75,12 +75,9 @@ header {
       .icon {
         height: 100%;
         width: 5%;
-        color: rgb(38, 38, 199);
+        color: #2626c7;
         display: flex;
         align-items: center;
-
-        .search-icon {
-        }
       }
       width: 600px;
       border-bottom: 4px solid rgb(38, 38, 199);
@@ -104,8 +101,12 @@ header {
 .app-icon {
   width: 200px;
 }
+.app-icon-container {
+  width: 200px;
+}
 .main-app {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -119,12 +120,24 @@ header {
   }
 
   .desc {
-    margin: 15px;
-    * {
-      margin: 2px 1px;
+    max-width: 330px;
+    margin: 0 20px;
+    h3 {
+      font-size: 23px;
+    }
+    p {
+      margin: 2px;
     }
     div {
       display: flex;
+      align-items: center;
+      * {
+        margin: 3px;
+      }
+      p {
+        color: rgb(104 89 89);
+        font-size: 13px;
+      }
     }
   }
   .download {
@@ -134,11 +147,11 @@ header {
       text-align: center;
       margin: 10px 0;
       padding: 15px 40px;
-      background: linear-gradient(230deg, rgb(43 43 223), rgb(30 29 90));
+      background: linear-gradient(230deg, rgb(82 82 231), rgb(44 42 147));
       color: #fff;
       text-decoration: none;
       border-radius: 30px;
-      font-size: 23px;
+      font-size: 18px;
     }
   }
 }
@@ -151,9 +164,59 @@ main {
     cursor: pointer;
     width: 300px;
     text-align: center;
-    margin: 5px;
+    margin: 10px 5px;
     img {
       border-radius: 20px;
     }
+    .app-name {
+      font-size: 24px;
+      margin: 3px 0;
+    }
+  }
+  div {
+    text-align: center;
+  }
+}
+.memory-info {
+  display: flex;
+  justify-content: space-around;
+  font-size: 13px;
+  color: rgb(65, 65, 65);
+}
+.rating {
+  display: inherit;
+  align-items: center;
+  img {
+    margin: 1px;
+    height: 14px;
+  }
+  p {
+    font-size: 13px;
+    color: #777;
+  }
+}
+@media only screen and (max-width: 650px) {
+  header {
+    .header {
+      .input {
+        .icon {
+          width: 23px;
+        }
+        width: 90%;
+      }
+    }
+  }
+  .app-icon-container {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 870px) {
+  .main-app {
+    .header-app {
+    }
+  }
+  .app-icon {
+    width: 150px;
+    height: auto;
   }
 }

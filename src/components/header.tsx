@@ -1,14 +1,11 @@
 import Logo from "../images/app-store.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Fetch } from "../state/redux";
 import { useState } from "react";
-import { AnyAction } from "redux";
-import { Value } from "sass";
-import AppStoreIcon from "./icon";
+
 export default function Header() {
-  const states = useSelector((state) => state);
   const dispatch = useDispatch();
   const [text, setText] = useState<string>("");
   return (

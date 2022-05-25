@@ -40,7 +40,7 @@ export const Fetch = (query: string) => {
   return (dispatch: any) => {
     dispatch(Request());
     axios
-      .get(`https://ws75.aptoide.com/api/7/apps/search/query=${query}/limit=50`)
+      .get(`http://ws75.aptoide.com/api/7/apps/search/query=${query}/limit=50`)
       .then((data: any) => {
         dispatch(Success(data));
       })

@@ -1,17 +1,20 @@
 import Logo from "../images/app-store.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Fetch } from "../state/redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+  const state: any = useSelector((state: any) => state);
   const dispatch = useDispatch();
   const [text, setText] = useState<string>("");
+  const [spinner, setSpinner] = useState<string>("spinner-app");
+
   return (
     <>
       <header>
-        <div className="spinner-app">
+        <div className={spinner}>
           <span></span>
         </div>
         <div className="header">

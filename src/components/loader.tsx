@@ -1,6 +1,6 @@
 import { CSSProperties, useState } from "react";
 import Logo from "../images/app-store.png";
-import "../style/loader.css";
+
 import { AppStoreIcon } from "./icon";
 type LoaderProps = {
   style: string;

@@ -48,5 +48,3 @@ export const Fetch = (query: string) => {
       .catch((error) => dispatch(Failure(error)));
   };
 };
-
-store.subscribe(() => console.log(store.getState()));

@@ -14,9 +14,9 @@ export default function Header() {
   return (
     <>
       <header>
-        <div className={spinner}>
+        {/* <div className={spinner}>
           <span></span>
-        </div>
+        </div> */}
         <div className="header">
           <div className="logo">
             <img className="logo-icon" src={Logo} alt="logo" />

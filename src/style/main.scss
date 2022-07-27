@@ -72,6 +72,9 @@ header {
         border: none;
         text-transform: capitalize;
       }
+      input:focus + label {
+        top: -5px;
+      }
       .icon {
         height: 100%;
         width: 5%;

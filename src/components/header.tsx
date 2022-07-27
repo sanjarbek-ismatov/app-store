@@ -26,11 +26,13 @@ export default function Header() {
             <div className="icon">
               <FontAwesomeIcon className="search-icon" icon={faSearch} />
             </div>
+
             <input
+              id="input"
               onChange={(e) => setText(e.target.value)}
               value={text}
               type="text"
-              placeholder="Enter your need application..."
+              // placeholder="Enter your need application..."
               onKeyPress={(e) => {
                 if (e.key === "Enter" && text) {
                   document
@@ -40,6 +42,12 @@ export default function Header() {
                 }
               }}
             />
+            <label
+              style={{ position: "absolute", width: "600px" }}
+              htmlFor="input"
+            >
+              Enter your need application...
+            </label>
           </div>
         </div>
       </header>

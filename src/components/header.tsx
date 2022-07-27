@@ -32,6 +32,8 @@ export default function Header() {
               onChange={(e) => setText(e.target.value)}
               value={text}
               type="text"
+              name="input"
+              required
               // placeholder="Enter your need application..."
               onKeyPress={(e) => {
                 if (e.key === "Enter" && text) {
@@ -42,12 +44,7 @@ export default function Header() {
                 }
               }}
             />
-            <label
-              style={{ position: "absolute", width: "600px" }}
-              htmlFor="input"
-            >
-              Enter your need application...
-            </label>
+            <label htmlFor="input">Enter your need application...</label>
           </div>
         </div>
       </header>

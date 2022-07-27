@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementsByClassName("container")[0]!).render(
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/app" element={<About />} />
+          <Route path="/app/:appid" element={<About />} />
         </Routes>
       </Provider>
     </BrowserRouter>

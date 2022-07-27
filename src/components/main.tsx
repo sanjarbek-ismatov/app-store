@@ -1,8 +1,5 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AnyAction } from "redux";
-import { Fetch } from "../state/redux";
 
 export var clicked: number;
 function Main() {
@@ -23,7 +20,7 @@ function Main() {
                   className="app-icon-container"
                   onClick={() => {
                     clicked = id;
-                    navigator("/app");
+                    navigator("/app/" + el.package);
                   }}
                 />
                 <p className="app-name">{el.name}</p>

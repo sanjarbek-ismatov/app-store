@@ -39,8 +39,8 @@ export const store = createStore(reducer, applyMiddleware(thunk));
 export const Fetch = (query: string) => {
   return (dispatch: any) => {
     dispatch(Request());
-    axios
-      .get(`https://ws75.aptoide.com/api/7/apps/search/query=${query}/limit=50`)
+    fetch(`https://ws75.aptoide.com/api/7/apps/search/query=${query}/limit=50`)
+      .then((res) => res.json())
       .then((data: any) => {
         dispatch(Success(data));
       })

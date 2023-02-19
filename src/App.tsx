@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 import Header from "./components/header";
 // import Loader from "./components/loader";

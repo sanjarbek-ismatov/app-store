@@ -39,7 +39,7 @@ export const store = createStore(reducer, applyMiddleware(thunk));
 export const Fetch = (query: string) => {
   return (dispatch: any) => {
     dispatch(Request());
-    fetch(`http://localhost:3000?query=${query}`)
+    fetch(`https://app-store-uz.onrender.com?query=${query}`)
       .then((res) => res.json())
       .then((data: any) => {
         dispatch(Success(data));

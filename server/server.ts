@@ -59,7 +59,11 @@ import morgan from "morgan";
 // });
 // server.listen(3000, () => console.log("listening"));
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://app-store-self.vercel.app/",
+  })
+);
 app.use(morgan("tiny"));
 app.get("/", async (req, res) => {
   // axios

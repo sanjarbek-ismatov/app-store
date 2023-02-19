@@ -12,7 +12,7 @@ function Main() {
         {state &&
           state.loading === false &&
           !state.error.message &&
-          state.data.data.datalist.list.map((el: any, id: number) => {
+          state.data.datalist.list.map((el: any, id: number) => {
             return (
               <div className="result" key={id}>
                 <img

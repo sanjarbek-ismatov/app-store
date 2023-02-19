@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 
 function About() {
   const state: any = useSelector((state) => state);
-  const element = state.data.data.datalist.list[clicked];
-  console.log(state.data.data.datalist.list[clicked].name);
+  const element = state.data.datalist.list[clicked];
+  console.log(state.data.datalist.list[clicked].name);
   return (
     <>
       <div className="main-app">

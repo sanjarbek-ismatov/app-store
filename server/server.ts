@@ -89,10 +89,14 @@ app.get("/", async (req, res) => {
         dbWriter(app, JSON.parse(datas));
         dbReader((err, data) => {
           if (err) console.log(err);
-          try {
-            return res.send(JSON.parse(data.find((e: any) => e[app])[app]));
-          } catch (ex) {
-            console.log(ex);
+          if (data && data.length) {
+            try {
+              return res.send(
+                JSON.stringify(data.find((e: any) => e[app])[app])
+              );
+            } catch (ex) {
+              console.log(ex);
+            }
           }
           return res.json(JSON.parse(datas));
         });

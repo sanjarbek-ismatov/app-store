@@ -14,8 +14,7 @@ const dbWriter = (keyword: any, data: any) => {
     const writableData = { [keyword]: data };
 
     if (datas && datas.length) {
-      if (keyword && !datas.find((e: any) => e[keyword]))
-        datas.push(writableData);
+      if (!datas.find((e: any) => e[keyword])) datas.push(writableData);
       fs.writeFile(
         "../server/db/apps.json",
         JSON.stringify(datas),

@@ -4,10 +4,12 @@ import cors from "cors";
 import http from "http";
 import morgan from "morgan";
 const app = express();
+app.set("view engine", "html");
 app.use(
-  cors({
-    origin: ["https://app-store-self.vercel.app", "http://localhost:3001"],
-  })
+  cors()
+  //   {
+  //   origin: ["https://app-store-self.vercel.app", "http://localhost:3001"],
+  // }
 );
 app.use(express.static("../dist"));
 app.use(morgan("tiny"));

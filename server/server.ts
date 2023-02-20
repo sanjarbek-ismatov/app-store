@@ -12,6 +12,7 @@ app.use(
   // }
 );
 app.use(express.static("../dist"));
+app.set("views", "../dist");
 app.use(morgan("tiny"));
 app.get("/", (req, res) => {
   res.render("index");

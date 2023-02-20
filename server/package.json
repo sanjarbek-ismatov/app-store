@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev:compile": "esbuild server.ts --packages=external --watch --bundle --minify --outfile=dist/bundle.js",
-    "dev": "nodemon dist/bundle.js",
+    "dev": "nodemon server.ts",
     "start": "node dist/bundle.js",
     "build": "esbuild server.ts --packages=external --bundle --minify --outfile=dist/bundle.js"
   },

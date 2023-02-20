@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import http from "http";
 import morgan from "morgan";
+import process from "process";
 const app = express();
 app.use(
   cors()
@@ -10,11 +11,15 @@ app.use(
   //   origin: ["https://app-store-self.vercel.app", "http://localhost:3001"],
   // }
 );
-app.use(express.static("../dist"));
-
+const currentDir = process.cwd().split("\\");
+const currentClientDir = currentDir.slice(-1)[0].includes("app-store")
+  ? currentDir.join("\\")
+  : __dirname;
+console.log(currentClientDir);
+app.use(express.static(currentClientDir + "/client/dist"));
 app.use(morgan("tiny"));
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/dist/index.html");
+  res.sendFile(currentClientDir + "/client/dist/index.html");
 });
 app.get("/api/apps", async (req, res) => {
   const { app }: any = req.query;

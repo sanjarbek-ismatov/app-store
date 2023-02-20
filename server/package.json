@@ -7,7 +7,7 @@
     "dev:compile": "esbuild server.ts --packages=external --watch --bundle --minify --outfile=dist/bundle.js",
     "dev": "nodemon server.ts",
     "start": "node dist/bundle.js",
-    "build": "esbuild server.ts --packages=external --bundle --minify --outfile=dist/bundle.js"
+    "build": "npm i &&  esbuild server.ts --packages=external --bundle --minify --outfile=dist/bundle.js"
   },
   "keywords": [],
   "author": "",

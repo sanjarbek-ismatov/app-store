@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite",
     "client-build": "tsc && vite build",
-    "start": "cd server && yarn start",
-    "build": "yarn client-build && cd server && yarn build",
+    "start": "cd server && npm start",
+    "build": "npm run client-build && cd server && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {

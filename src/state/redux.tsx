@@ -39,7 +39,7 @@ export const store = createStore(reducer, applyMiddleware(thunk));
 export const Fetch = (query: string) => {
   return (dispatch: any) => {
     dispatch(Request());
-    fetch(`http://localhost:3000?app=${query}`)
+    fetch(`/api/apps?app=${query}`)
       .then((res) => res.json())
       .then((data: any) => {
         dispatch(Success(data));

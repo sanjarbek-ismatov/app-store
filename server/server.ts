@@ -9,8 +9,12 @@ app.use(
     origin: ["https://app-store-self.vercel.app", "http://localhost:3001"],
   })
 );
+app.use(express.static("../dist"));
 app.use(morgan("tiny"));
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+  res.render("index");
+});
+app.get("/api/apps", async (req, res) => {
   const { app }: any = req.query;
   if (app) {
     const request = http.request(

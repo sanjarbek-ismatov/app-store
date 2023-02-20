@@ -10,9 +10,8 @@ const dbReader = (
 };
 const dbWriter = (keyword: any, data: any) => {
   dbReader((err: NodeJS.ErrnoException | null, datas: any) => {
-    if (err) throw err;
+    if (err) console.log(err);
     const writableData = { [keyword]: data };
-
     if (datas && datas.length) {
       if (!datas.find((e: any) => e[keyword])) datas.push(writableData);
       fs.writeFile(

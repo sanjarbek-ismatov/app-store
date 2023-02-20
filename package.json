@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "client-build": "tsc && vite build",
+    "start": "cd server && yarn start",
+    "build": "yarn client-build && cd server && yarn build",
     "preview": "vite preview"
   },
   "dependencies": {

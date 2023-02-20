@@ -1,12 +1,12 @@
 "use strict";
 (() => {
-  var D = Object.create;
+  var w = Object.create;
   var S = Object.defineProperty;
-  var E = Object.getOwnPropertyDescriptor;
-  var F = Object.getOwnPropertyNames;
-  var R = Object.getPrototypeOf,
-    v = Object.prototype.hasOwnProperty;
-  var a = ((n) =>
+  var D = Object.getOwnPropertyDescriptor;
+  var E = Object.getOwnPropertyNames;
+  var F = Object.getPrototypeOf,
+    R = Object.prototype.hasOwnProperty;
+  var c = ((n) =>
     typeof require < "u"
       ? require
       : typeof Proxy < "u"
@@ -15,22 +15,22 @@
     if (typeof require < "u") return require.apply(this, arguments);
     throw new Error('Dynamic require of "' + n + '" is not supported');
   });
-  var W = (n, e) => () => (n && (e = n((n = 0))), e);
-  var _ = (n, e) => () => (e || n((e = { exports: {} }).exports, e), e.exports);
-  var C = (n, e, t, i) => {
+  var v = (n, e) => () => (n && (e = n((n = 0))), e);
+  var W = (n, e) => () => (e || n((e = { exports: {} }).exports, e), e.exports);
+  var _ = (n, e, t, o) => {
     if ((e && typeof e == "object") || typeof e == "function")
-      for (let o of F(e))
-        !v.call(n, o) &&
-          o !== t &&
-          S(n, o, {
-            get: () => e[o],
-            enumerable: !(i = E(e, o)) || i.enumerable,
+      for (let i of E(e))
+        !R.call(n, i) &&
+          i !== t &&
+          S(n, i, {
+            get: () => e[i],
+            enumerable: !(o = D(e, i)) || o.enumerable,
           });
     return n;
   };
-  var c = (n, e, t) => (
-    (t = n != null ? D(R(n)) : {}),
-    C(
+  var a = (n, e, t) => (
+    (t = n != null ? w(F(n)) : {}),
+    _(
       e || !n || !n.__esModule
         ? S(t, "default", { value: n, enumerable: !0 })
         : t,
@@ -38,52 +38,52 @@
     )
   );
   var J = (n, e, t) =>
-    new Promise((i, o) => {
+    new Promise((o, i) => {
       var s = (l) => {
           try {
             r(t.next(l));
           } catch (m) {
-            o(m);
+            i(m);
           }
         },
         p = (l) => {
           try {
             r(t.throw(l));
           } catch (m) {
-            o(m);
+            i(m);
           }
         },
-        r = (l) => (l.done ? i(l.value) : Promise.resolve(l.value).then(s, p));
+        r = (l) => (l.done ? o(l.value) : Promise.resolve(l.value).then(s, p));
       r((t = t.apply(n, e)).next());
     });
-  var f,
-    d,
+  var u,
+    f,
     N,
-    b = W(() => {
+    b = v(() => {
       "use strict";
-      (f = c(a("fs"))),
-        (d = (n) => {
-          f.default.readFile("./db/apps.json", "utf-8", (e, t) => {
+      (u = a(c("fs"))),
+        (f = (n) => {
+          u.default.readFile("./db/apps.json", "utf-8", (e, t) => {
             e && n(e, null), t ? n(null, JSON.parse(t)) : n(null, null);
           });
         }),
         (N = (n, e) => {
-          d((t, i) => {
+          f((t, o) => {
             t && console.log(t);
-            let o = { [n]: e };
-            i && i.length
-              ? (i.find((s) => s[n]) || i.push(o),
-                f.default.writeFile(
+            let i = { [n]: e };
+            o && o.length
+              ? (o.find((s) => s[n]) || o.push(i),
+                u.default.writeFile(
                   "./db/apps.json",
-                  JSON.stringify(i),
+                  JSON.stringify(o),
                   null,
                   (s) => {
                     s && console.log(s);
                   }
                 ))
-              : f.default.writeFile(
+              : u.default.writeFile(
                   "./db/apps.json",
-                  JSON.stringify([o]),
+                  JSON.stringify([i]),
                   null,
                   (s) => {
                     s && console.log(s);
@@ -92,37 +92,39 @@
           });
         });
     });
-  var P = _((w) => {
+  var C = W((j) => {
     b();
-    var g = c(a("express")),
-      O = c(a("cors")),
-      x = c(a("http")),
-      j = c(a("morgan")),
-      y = c(a("process")),
-      u = (0, g.default)();
-    u.use((0, O.default)());
-    var q = y.default.cwd().split("\\"),
-      h = q.console.log(h);
-    u.use(g.default.static(h + "/client/dist"));
-    u.use((0, j.default)("tiny"));
-    u.get("/", (n, e) => {
+    var g = a(c("express")),
+      O = a(c("http")),
+      x = a(c("morgan")),
+      y = a(c("process")),
+      d = (0, g.default)(),
+      q = y.default.cwd().split("\\"),
+      h = q.slice(-1)[0].includes("dist")
+        ? q.slice(0, -1).join("\\")
+        : __dirname;
+    console.log(q);
+    console.log(h);
+    d.use(g.default.static(h + "/client/dist"));
+    d.use((0, x.default)("tiny"));
+    d.get("/", (n, e) => {
       e.sendFile(h + "/client/dist/index.html");
     });
-    u.get("/api/apps", (n, e) =>
-      J(w, null, function* () {
+    d.get("/api/apps", (n, e) =>
+      J(j, null, function* () {
         let { app: t } = n.query;
         t
-          ? x.default
+          ? O.default
               .request(
                 `http://ws75.aptoide.com/api/7/apps/search/query=${t}/limit=50`,
-                (o) => {
+                (i) => {
                   let s = "";
-                  o.on("data", (p) => {
+                  i.on("data", (p) => {
                     s += p.toString();
                   }),
-                    o.on("end", () => {
+                    i.on("end", () => {
                       N(t, JSON.parse(s)),
-                        d((p, r) => {
+                        f((p, r) => {
                           if ((p && console.log(p), r && r.length))
                             try {
                               return e.send(r.find((l) => l[t])[t]);
@@ -135,13 +137,13 @@
                 }
               )
               .end()
-          : d((i, o) => {
-              if (i) return e.status(404).send("Datas not found");
-              e.status(200).send(o);
+          : f((o, i) => {
+              if (o) return e.status(404).send("Datas not found");
+              e.status(200).send(i);
             });
       })
     );
-    u.listen(y.default.env.PORT || 3e3);
+    d.listen(y.default.env.PORT || 3e3);
   });
-  P();
+  C();
 })();

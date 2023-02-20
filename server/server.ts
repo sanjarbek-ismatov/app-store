@@ -4,7 +4,6 @@ import cors from "cors";
 import http from "http";
 import morgan from "morgan";
 const app = express();
-app.set("view engine", "html");
 app.use(
   cors()
   //   {
@@ -12,10 +11,10 @@ app.use(
   // }
 );
 app.use(express.static("../dist"));
-app.set("views", "../dist");
+
 app.use(morgan("tiny"));
 app.get("/", (req, res) => {
-  res.render("index");
+  res.sendFile(__dirname + "/dist/index.html");
 });
 app.get("/api/apps", async (req, res) => {
   const { app }: any = req.query;

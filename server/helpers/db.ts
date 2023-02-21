@@ -4,15 +4,14 @@ const dbReader = (
 ) => {
   fs.readFile("../server/db/apps.json", "utf-8", (err, data) => {
     if (err) cb(err, null);
-    if (data) cb(null, JSON.parse(data));
+    else if (data) cb(null, JSON.parse(data));
     else cb(null, null);
   });
 };
 const dbWriter = (keyword: any, data: any) => {
   dbReader((err: NodeJS.ErrnoException | null, datas: any) => {
-    if (err) throw err;
+    if (err) console.log(err);
     const writableData = { [keyword]: data };
-
     if (datas && datas.length) {
       if (!datas.find((e: any) => e[keyword])) datas.push(writableData);
       fs.writeFile(

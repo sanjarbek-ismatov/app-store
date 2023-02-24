@@ -1,48 +1,79 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { List, useGetAppFromKeywordMutation } from "../store/rtk/api/storeapi";
+import Header from "./header";
+import Lazyimage from "./lazyimage";
+import Modal from "./modal";
 
 export var clicked: number;
 function Main() {
-  const state: any = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const [display, setDisplay] = useState<"block" | "none">("none");
+  const [content, setContent] = useState<List>();
+  const [getApp, { isLoading, isError, error, isSuccess, data }] =
+    useGetAppFromKeywordMutation();
   const navigator = useNavigate();
   return (
     <>
       <main>
-        {state &&
-          state.loading === false &&
-          !state.error.message &&
-          state.data.datalist.list.map((el: any, id: number) => {
-            return (
-              <div className="result" key={id}>
-                <img
-                  src={el.icon}
-                  className="app-icon-container"
-                  onClick={() => {
-                    clicked = id;
-                    navigator("/app/" + el.package);
-                  }}
-                />
-                <p className="app-name">{el.name}</p>
-                <div className="memory-info">
-                  <div className="rating">
-                    <img src="https://musical-ly.en.aptoide.com/static/imgs/golden-star.svg" />
-                    <p>{el.stats.prating.avg}</p>
+        <Modal setDisplay={setDisplay} display={display} content={content} />
+        <Header getApp={getApp} />
+        <div className="container-fluid d-flex flex-wrap justify-content-center">
+          {isLoading && (
+            <div
+              style={{ height: "100px", width: "100px" }}
+              className="spinner-border text-primary"
+            ></div>
+          )}
+          {isSuccess &&
+            data &&
+            data.datalist.list.map((el, id: number) => {
+              return (
+                <div
+                  style={{ width: "250px" }}
+                  className="card p-2 mx-2 my-4"
+                  key={id}
+                >
+                  <Lazyimage icon={el.icon} />
+                  <div className="card-body">
+                    <p className="card-title">{el.name}</p>
+                    <div className="d-flex my-2 justify-content-between align-items-center">
+                      <div className="d-flex align-items-center">
+                        <img
+                          style={{ height: "15px" }}
+                          src="https://musical-ly.en.aptoide.com/static/imgs/golden-star.svg"
+                        />
+                        <p className="card-text">{el.stats.prating.avg}</p>
+                      </div>
+                      <p className="m-0">
+                        {Math.floor(el.size / 100000) / 10} MB
+                      </p>
+                    </div>
                   </div>
-                  <p>{Math.floor(el.size / 100000) / 10} MB</p>
+                  <div className="card-footer">
+                    <button
+                      onClick={() => {
+                        setDisplay("block");
+                        setContent(el);
+                      }}
+                      className="btn btn-primary"
+                    >
+                      View
+                    </button>
+                  </div>
                 </div>
+              );
+            })}
+
+          {isError && error && "data" in error && (
+            <>
+              <div>
+                <button onClick={() => {}}>Refresh</button>
+                <p>Sorry. I can't found this app! Have problem:</p>
+                {/* <p>{error.data.toString()}</p> */}
               </div>
-            );
-          })}
-        {state && state.error.message && (
-          <>
-            <div>
-              <button onClick={() => {}}>Refresh</button>
-              <p>Sorry. I can't found this app! Have problem:</p>
-              <p>{state.error.message}</p>
-            </div>
-          </>
-        )}
+            </>
+          )}
+        </div>
       </main>
     </>
   );

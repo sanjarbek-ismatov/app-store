@@ -1,50 +1,45 @@
 import Logo from "../images/app-store.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { Fetch } from "../state/redux";
-import { useEffect, useState } from "react";
 
-export default function Header() {
-  const state: any = useSelector((state: any) => state);
-  const dispatch = useDispatch();
+import { useState } from "react";
+
+export default function Header({ getApp }: { getApp: any }) {
   const [text, setText] = useState<string>("");
-  const [spinner, setSpinner] = useState<string>("spinner-app");
 
   return (
     <>
       <header>
-        {/* <div className={spinner}>
-          <span></span>
-        </div> */}
-        <div className="header">
-          <div className="logo">
-            <img className="logo-icon" src={Logo} alt="logo" />
-            <h1>App Store</h1>
+        <div className="container py-5 text-center">
+          <div className="d-flex mb-5">
+            <img
+              style={{ height: "70px" }}
+              className=""
+              src={Logo}
+              alt="logo"
+            />
+            <h3 className="mx-3 my-4">App Store</h3>
           </div>
-          <div className="input">
-            <div className="icon">
-              <FontAwesomeIcon className="search-icon" icon={faSearch} />
-            </div>
 
+          <div className="form-floating w-100 mx-auto d-flex align-items-center">
             <input
+              className="form-control"
               id="input"
               onChange={(e) => setText(e.target.value)}
               value={text}
               type="text"
-              name="input"
               required
-              // placeholder="Enter your need application..."
+              placeholder="Enter your need application..."
               onKeyPress={(e) => {
                 if (e.key === "Enter" && text) {
-                  document
-                    .getElementsByClassName("header")[0]
-                    .classList.add("search-header");
-                  dispatch<any>(Fetch(text));
+                  getApp(text);
                 }
               }}
             />
-            <label htmlFor="input">Enter your need application...</label>
+            <label htmlFor="input">
+              <FontAwesomeIcon className="search-icon" icon={faSearch} /> Enter
+              your need application...
+            </label>
           </div>
         </div>
       </header>

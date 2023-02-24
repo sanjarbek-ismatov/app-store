@@ -1,7 +1,4 @@
 import { createStore, applyMiddleware } from "redux";
-
-import axios from "axios";
-
 import { Request, Failure, Success } from "./actions";
 import thunk from "redux-thunk";
 const initialState: { loading: boolean; data: []; error: {} } = {
@@ -44,7 +41,6 @@ export const Fetch = (query: string) => {
       .then((data: any) => {
         dispatch(Success(data));
       })
-
       .catch((error) => dispatch(Failure(error)));
   };
 };

@@ -1,12 +1,9 @@
-import Logo from "../images/app-store.png";
+import Logo from "../../images/app-store.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-
 import { useState } from "react";
-
 export default function Header({ getApp }: { getApp: any }) {
   const [text, setText] = useState<string>("");
-
   return (
     <>
       <header>

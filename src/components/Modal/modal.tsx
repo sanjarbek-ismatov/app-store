@@ -1,6 +1,5 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
-import { List } from "../store/rtk/api/storeapi";
-
+import type { Dispatch, FC, SetStateAction } from "react";
+import { List } from "../../types";
 const Modal: FC<{
   display: "none" | "block";
   setDisplay: Dispatch<SetStateAction<"none" | "block">>;
